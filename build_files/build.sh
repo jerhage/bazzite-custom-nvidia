@@ -69,7 +69,8 @@ dnf5 install -y --setopt=install_weak_deps=False \
     wezterm \
     blueman \
     qt5-qtwayland \
-    qt6-qtwayland
+    qt6-qtwayland \
+    libva-nvidia-driver
 
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable solopasha/hyprland

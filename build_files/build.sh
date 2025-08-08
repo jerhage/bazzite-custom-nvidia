@@ -35,7 +35,8 @@ dnf5 remove -y fish
 
 # thumbnailers to enable thumbnails for pdfs
 dnf5 install -y dolphin \
-    kdegraphics-thumbnailers 
+    kdegraphics-thumbnailers \
+    kdesdk-thumbnailers 
 
 dnf5 install -y --setopt=install_weak_deps=False \
     xdg-desktop-portal-hyprland \

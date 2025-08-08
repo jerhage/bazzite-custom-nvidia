@@ -29,6 +29,7 @@ enable_copr erikreider/SwayNotificationCenter
 enable_copr pgdev/ghostty
 enable_copr wezfurlong/wezterm-nightly
 
+dnf5 -y remove gnome-\*
 # ncurses-term dependency is in conflict with ghostty so I'm getting rid of fish here
 dnf5 remove -y fish
 
@@ -69,8 +70,7 @@ dnf5 install -y --setopt=install_weak_deps=False \
     wezterm \
     blueman \
     qt5-qtwayland \
-    qt6-qtwayland \
-    libva-nvidia-driver
+    qt6-qtwayland
 
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable solopasha/hyprland

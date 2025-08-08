@@ -33,7 +33,9 @@ dnf5 -y remove gnome-\*
 # ncurses-term dependency is in conflict with ghostty so I'm getting rid of fish here
 dnf5 remove -y fish
 
-dnf5 install -y dolphin
+# thumbnailers to enable thumbnails for pdfs
+dnf5 install -y dolphin \
+    kdegraphics-thumbnailers 
 
 dnf5 install -y --setopt=install_weak_deps=False \
     xdg-desktop-portal-hyprland \

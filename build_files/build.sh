@@ -45,6 +45,7 @@ dnf5 install -y --setopt=install_weak_deps=False \
     hyprsunset \
     hyprpaper \
     hyprcursor \
+    hyprshot \
     hyprgraphics \
     hyprpolkitagent \
     hyprland-qtutils \

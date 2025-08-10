@@ -10,12 +10,13 @@ enable_copr() {
         -O "/etc/yum.repos.d/_copr_${repo_with_dash}.repo"
 }
 
-# # https://support.1password.com/install-linux/#fedora-or-red-hat-enterprise-linux
-# get_1_password() {
-#     rpm --import https://downloads.1password.com/linux/keys/1password.asc
-#     sh -c 'echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=\"https://downloads.1password.com/linux/keys/1password.asc\"" > /etc/yum.repos.d/1password.repo'
-#     mkdir /opt/1Password
-# }
+# https://support.1password.com/install-linux/#fedora-or-red-hat-enterprise-linux
+get_1_password() {
+    sudo rpm --import https://downloads.1password.com/linux/keys/1password.asc
+    sudo sh -c 'echo -e "[1password]\nname=1Password Stable Channel\nbaseurl=https://downloads.1password.com/linux/rpm/stable/\$basearch\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=\"https://downloads.1password.com/linux/keys/1password.asc\"" > /etc/yum.repos.d/1password.repo'
+    # mkdir /opt/1Password
+    sudo dnf install 1password
+}
 
 ### Install packages
 
@@ -34,6 +35,8 @@ dnf5 -y remove gnome-\*
 dnf5 remove -y fish
 
 dnf5 install -y dolphin
+
+get_1_password 
 
 dnf5 install -y --setopt=install_weak_deps=False \
     xdg-desktop-portal-hyprland \
